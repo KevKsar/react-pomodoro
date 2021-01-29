@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+//colors var
+$background-container: #868396;
+$screen: #ffffff;
+$button: #868396;
+$iconNav: #e7e6ea;
+$text-primary: #e7e6ea;
+$text-secondary: darken($text-primary, 30);
+
+//style var
+$radius-xs: 1rem;
+$radius-s: 2rem;
+$radius-pill: 50rem;
+$radius-circle: 50%;
+
+//styles
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin box-shadow {
+    box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582);
+}
+@mixin flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+////////////////////////////////////////////////////
+body {
+    @include flex-center;
+}
+
+.container {
+    @include box(80rem, 70rem);
+    @include flex-center;
+    @include border-radius($radius-s);
+    background-color: $background-container;
+}
+
+//start phone content
+.phone {
+    @include box(28rem, 57rem);
+    @include border-radius($radius-s);
+    background-color: rgb(43, 42, 42);
+    border-top: 10px solid #000000;
+    border-right: 5px solid #000000;
+    border-bottom: 10px solid #000000;
+    border-left: 5px solid #000000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    &__speaker {
+        background-color: black;
+        @include box(10rem, 0.1rem);
+        border-radius: 0 0 2rem 2rem;
+    }
+    &__camera {
+        @include box(0.5rem);
+        background-color: rgb(24, 24, 24);
+        border: 0.4rem solid black;
+        border-radius: 50%;
+        position: absolute;
+        margin-top: 0.8rem;
+    }
+}
+.notifBar {
+    width: 100%;
+    margin: 0.5rem 1rem;
+    color: $text-primary;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4rem;
+    flex-grow: 1;
+    &__time {
+        font-weight: bold;
+        flex-grow: 1;
+        margin-left: 4rem;
+    }
+    &__states {
+        display: flex;
+        justify-self: end;
+    }
+    &__item {
+        margin: 0 0.2rem;
+    }
+}
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: $iconNav;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    justify-self: end;
+    &__icon {
+        cursor: pointer;
+    }
+}
+.screen {
+    flex-grow: 1;
+    @include box(100%, 100%);
+    @include flex-center();
+    font-size: 3rem;
+    color: white;
+    flex-direction: column;
+}
+
+.pomodoro{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro</title>
-    <link rel="stylesheet" href="style.scss">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/514dd7d2dc.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-
-    <script src="./script.js"></script>
+    <div class="container">
+        <div class="phone">
+            <div class="phone__speaker"></div>
+            <div class="phone__camera"></div>
+            <div class="notifBar">
+                <div class="notifBar__time"></div>
+                <div class="notifBar__states">
+                    <i class="notifBar__item fas fa-signal"></i>
+                    <i class="notifBar__item fas fa-wifi"></i>
+                    <i class="notifBar__item fas fa-battery-three-quarters"></i>    
+                </div>
+            </div>
+        
+            <div class="screen">
+                
+            </div>
+            <div class="nav">
+                <i id="buttonMenu" class="nav__icon fas fa-bars"></i>
+                <i id="buttonHome" class="nav__icon far fa-square"></i>
+                <i id="buttonBack" class="nav__icon fas fa-chevron-left"></i>              
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
