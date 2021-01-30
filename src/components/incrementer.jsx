@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 
-class Incrementer extends React.Component {
+class Incrementer extends Component {
     constructor(props) {
         super(props);
-        this.state = {n: props.start, timer: null};
+        this.state = { n: props.start, timer: null };
         // this.timer = null
-        this.toggle = this.toggle.bind(this);
-        this.reset = this.reset.bind(this);
+        // this.toggle = this.toggle.bind(this);
+        // this.reset = this.reset.bind(this);
     }
 
     componentDidMount() {
@@ -19,7 +19,7 @@ class Incrementer extends React.Component {
     }
 
     increment() {
-        this.setState((state, props) => ({n: state.n + props.step}));
+        this.setState((state, props) => ({ n: state.n + props.step }));
     }
 
     pause() {
@@ -35,12 +35,12 @@ class Incrementer extends React.Component {
             timer: window.setInterval(this.increment.bind(this), 1000),
         });
     }
-    reset() {
-        this.setState((state, props) => ({n: props.start}));
+    reset = () => {
+        this.setState((state, props) => ({ n: props.start }));
         this.pause();
     }
 
-    toggle() {
+    toggle = () => {
         return this.state.timer ? this.pause() : this.play();
     }
 
@@ -71,4 +71,4 @@ Incrementer.defaultProps = {
     step: 1,
 };
 
-module.exports = Incrementer;
+export default Incrementer;

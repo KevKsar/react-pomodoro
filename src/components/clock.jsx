@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-class Clock extends React.Component {
+class Clock extends Component {
     constructor(props) {
         super(props); // >>>>> necessaire to call the parent mathode
         this.state = {date: new Date()};
@@ -24,4 +24,4 @@ class Clock extends React.Component {
     }
 }
 
-module.exports = Clock;
+export default Clock;
