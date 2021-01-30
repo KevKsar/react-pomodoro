@@ -3,12 +3,12 @@ import React, { Component } from "react";
 class Clock extends Component {
     constructor(props) {
         super(props); // >>>>> necessaire to call the parent mathode
-        this.state = {date: new Date()};
+        this.state = { date: new Date() };
         this.timer = null;
     }
 
-    componentDidMount() {
-        this.timer = window.setInterval(this.tick.bind(this), 1000);
+    componentDidMount = () => {
+        this.timer = window.setInterval((this.tick), 1000);
     }
 
     componentWillUnmount() {
@@ -16,7 +16,7 @@ class Clock extends Component {
     }
 
     tick() {
-        this.setState({date: new Date()});
+        this.setState({ date: new Date() });
     }
 
     render() {
