@@ -19,7 +19,7 @@ class Incrementer extends Component {
     }
 
     increment() {
-        this.setState((state, props) => ({ n: state.n + props.step }));
+        this.setState((state, props) => ({ n: state.n - props.step }));
     }
 
     pause() {
@@ -32,7 +32,7 @@ class Incrementer extends Component {
     play() {
         window.clearInterval(this.state.timer);
         this.setState({
-            timer: window.setInterval(this.increment.bind(this), 1000),
+            timer: window.setInterval(this.increment.bind(this), 1000)
         });
     }
     reset = () => {
@@ -49,17 +49,23 @@ class Incrementer extends Component {
     }
 
     render() {
-        const toggle = this.toggle;
-        const reset = this.reset;
+        // const toggle = this.toggle;
+        // const reset = this.reset;
+        function toMinutesAndSeconds(param) {
+            let minutes = Math.floor(param / 60);
+            let seconds = ((param % 60) / 1).toFixed(0);
+            return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        }
         return (
             <div className={"pomodoro"}>
-                {"Timer: "}
-                {this.state.n}
-                <button type={"button"} className={"btn"} onClick={toggle}>
+                {toMinutesAndSeconds(this.state.n)
+                }
+                {/* {this.state.n} */}
+                <button type={"button"} className={"btn"} onClick={this.toggle}>
                     {this.label()}
                 </button>
-                <button type={"button"} className={"btn"} onClick={reset}>
-                    {"Reset"}
+                <button type={"button"} className={"btn"} onClick={this.reset}>
+                    Reset
                 </button>
             </div>
         );

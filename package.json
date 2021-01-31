@@ -1,7 +1,7 @@
 {
   "name": "react-pomodoro",
   "version": "1.0.0",
-  "description": "",
+  "description": "A pomodoro timer to organize tasks along the day",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,9 +20,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-syntax-class-properties": "^7.12.1",
-    "@babel/plugin-transform-react-jsx-compat": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
     "@becode/eslint-config": "^0.12.1",
     "eslint": "^7.18.0",
