@@ -40,7 +40,7 @@ body {
   width: 28rem;
   height: 57rem;
   border-radius: 2rem;
-  background-color: #2b2a2a;
+  background-color: #3d3d3d;
   border-top: 10px solid #000000;
   border-right: 5px solid #000000;
   border-bottom: 10px solid #000000;
@@ -59,6 +59,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+  -webkit-box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582);
+          box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582);
 }
 
 .phone__speaker {
@@ -66,12 +69,13 @@ body {
   width: 10rem;
   height: 0.1rem;
   border-radius: 0 0 2rem 2rem;
+  position: absolute;
 }
 
 .phone__camera {
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #181818;
+  background-color: #191829;
   border: 0.4rem solid black;
   border-radius: 50%;
   position: absolute;
@@ -80,33 +84,29 @@ body {
 
 .notifBar {
   width: 100%;
-  margin: 0.5rem 1rem;
   color: #e7e6ea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-right: 4rem;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  padding: 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  z-index: 15;
 }
 
 .notifBar__time {
   font-weight: bold;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  margin-left: 4rem;
+  margin-left: 1rem;
+  text-align: left;
 }
 
 .notifBar__states {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-self: end;
+  margin-right: 1rem;
 }
 
 .notifBar__item {
@@ -118,25 +118,134 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   color: #e7e6ea;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  justify-self: end;
+  background-color: rgba(0, 0, 0, 0.123);
+  padding: 1rem;
+  z-index: 15;
 }
 
 .nav__icon {
   cursor: pointer;
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: #e7e6ea;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  width: 6rem;
+  height: 2rem;
+}
+
+.nav__icon:hover {
+  background-color: #4b4b4b;
 }
 
 .screen {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
   width: 100%;
   height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr auto;
+      grid-template-rows: 1fr 1fr 1fr auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 3rem;
+  color: #e7e6ea;
+}
+
+.pomodoroApp__task {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.pomodoroApp__setTime {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.6rem;
+          column-gap: 0.6rem;
+  margin: 0.6rem;
+}
+
+.pomodoroApp__setTime > button {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: #e7e6ea;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.pomodoroApp__setTime > button:hover {
+  background-color: #4b4b4b;
+}
+
+.pomodoroApp__stopWatch {
+  font-size: 2rem;
+}
+
+.pomodoroApp__timer {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-size: 7rem;
+  border-bottom: 2px solid Red;
+}
+
+.pomodoroApp__controls {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.pomodoroApp__button {
+  width: 6rem;
+  height: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,15 +255,50 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 3rem;
-  color: white;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  outline: none;
+  border: 3px solid white;
+  background-color: #4b4b4b;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #e7e6ea;
+  font-size: 2rem;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-.pomodoro {
+.pomodoroApp__button:hover {
+  background-color: #656565;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(14, 14, 14, 0.424);
+}
+
+.modal {
+  width: 70%;
+  height: 40%;
+  background-color: #575757;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 3rem;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,5 +306,93 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal__closeButton {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: 2rem;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: #e7e6ea;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.modal__closeButton:hover {
+  background-color: #4b4b4b;
+}
+
+.modal__title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.modal__timer {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid red;
+}
+
+.modal__startButton {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: #e7e6ea;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  width: 8rem;
+  height: 4rem;
+}
+
+.modal__startButton:hover {
+  background-color: #4b4b4b;
+}
+
+.appModal {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin: 0.6rem;
+}
+
+.appModal__openButton {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: #e7e6ea;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.appModal__openButton:hover {
+  background-color: #4b4b4b;
 }
 /*# sourceMappingURL=style.css.map */

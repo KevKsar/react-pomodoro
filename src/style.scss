@@ -10,9 +10,8 @@ html {
 
 //colors var
 $background-container: #868396;
-$screen: #ffffff;
-$button: #868396;
-$iconNav: #e7e6ea;
+$screen: #3d3d3d;
+$bg-button: rgb(75, 75, 75);
 $text-primary: #e7e6ea;
 $text-secondary: darken($text-primary, 30);
 
@@ -41,7 +40,22 @@ $radius-circle: 50%;
     justify-content: center;
 }
 
-////////////////////////////////////////////////////
+@mixin set-button($paddingY: 1rem, $paddingY: 1rem, $box:4rem , $radius: $radius-xs) {
+    @include box($box, );
+    padding: $paddingY $paddingY;
+    font-size: 2rem;
+    border-radius: $radius;
+    color: $text-primary;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    &:hover {
+        background-color: $bg-button;
+    }
+}
+
 body {
     @include flex-center;
 }
@@ -53,11 +67,10 @@ body {
     background-color: $background-container;
 }
 
-//start phone content
 .phone {
     @include box(28rem, 57rem);
     @include border-radius($radius-s);
-    background-color: rgb(43, 42, 42);
+    background-color: $screen;
     border-top: 10px solid #000000;
     border-right: 5px solid #000000;
     border-bottom: 10px solid #000000;
@@ -67,14 +80,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    @include box-shadow();
     &__speaker {
         background-color: black;
         @include box(10rem, 0.1rem);
         border-radius: 0 0 2rem 2rem;
+        position: absolute;
     }
     &__camera {
         @include box(0.5rem);
-        background-color: rgb(24, 24, 24);
+        background-color: rgb(25, 24, 41);
         border: 0.4rem solid black;
         border-radius: 50%;
         position: absolute;
@@ -83,20 +99,20 @@ body {
 }
 .notifBar {
     width: 100%;
-    margin: 0.5rem 1rem;
     color: $text-primary;
     display: flex;
-    justify-content: flex-end;
-    margin-right: 4rem;
-    flex-grow: 1;
+    padding: 0.5rem;
+    justify-content: space-between;
+    position: relative;
+    z-index: 15;
     &__time {
         font-weight: bold;
-        flex-grow: 1;
-        margin-left: 4rem;
+        margin-left: 1rem;
+        text-align: left;
     }
     &__states {
         display: flex;
-        justify-self: end;
+        margin-right: 1rem;
     }
     &__item {
         margin: 0 0.2rem;
@@ -105,25 +121,131 @@ body {
 .nav {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    color: $iconNav;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    justify-self: end;
+    justify-content: space-around;
+    color: $text-primary;
+    background-color: rgba(0, 0, 0, 0.123);
+    padding: 1rem;
+    z-index: 15;
     &__icon {
         cursor: pointer;
+        text-align: center;
+        @include set-button();
+        @include box(6rem, 2rem )
     }
 }
 .screen {
-    flex-grow: 1;
     @include box(100%, 100%);
-    @include flex-center();
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr auto;
+    align-items: flex-end;
     font-size: 3rem;
-    color: white;
-    flex-direction: column;
+    color: $text-primary;
 }
 
-.pomodoro{
+.pomodoroApp {
+    &__task {
+        grid-row: 1;
+        grid-column: 1/2;
+        justify-self: center;
+    }
+    &__setTime {
+        grid-row: 4/5;
+        grid-column: 1;
+        display: flex;
+        align-items: center;
+        column-gap: 0.6rem;
+        margin: 0.6rem;
+        > button {
+            @include set-button();
+        }
+    }
+    &__stopWatch {
+        font-size: 2rem;
+    }
+    &__timer {
+        grid-row: 2/3;
+        grid-column: 1/2;
+        justify-self: center;
+        font-size: 7rem;
+        border-bottom: 2px solid Red;
+    }
+    &__controls {
+        grid-row: 3/4;
+        grid-column: 1/2;
+        display: flex;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+    &__button {
+        @include box(6rem);
+        @include flex-center();
+        outline: none;
+        border: 3px solid white;
+        background-color: $bg-button;
+        border-radius: 50%;
+        cursor: pointer;
+        color: $text-primary;
+        font-size: 2rem;
+        transition: all 0.2s linear;
+        &:hover {
+            background-color: lighten($bg-button, 10);
+        }
+    }
+}
+
+.modalWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    background-color: rgba(14, 14, 14, 0.424);
+}
+
+.modal {
+    @include box(70%, 40%);
+    background-color: lighten($screen, $amount: 10);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3rem;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    &__closeButton {
+        align-self: flex-end;
+        margin-bottom: 2rem;
+        @include set-button();
+    }
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    &__timer {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        border-bottom: 2px solid red;
+    }
+    &__startButton {
+        @include set-button();
+        @include box(8rem, 4rem )
+    }
+}
+
+.appModal {
+    grid-row: 4/5;
+    grid-column: 1;
+    justify-self: end;
+    margin: 0.6rem;
+    &__openButton {
+        @include set-button();
+    }
 }
