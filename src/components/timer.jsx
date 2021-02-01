@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Decrementer extends Component {
+class Timer extends Component {
     constructor(props) {
         super(props);
         this.state = { n: props.start, timer: null };
@@ -18,18 +18,18 @@ class Decrementer extends Component {
         window.clearInterval(this.timer);
     }
 
-    decrement() {
+    decrement = () => {
         this.setState((state, props) => ({ n: state.n - props.step }));
     }
 
-    pause() {
+    pause = () => {
         window.clearInterval(this.state.timer);
         this.setState({
             timer: null,
         });
     }
 
-    play() {
+    play = () => {
         window.clearInterval(this.state.timer);
         this.setState({
             timer: window.setInterval(this.decrement.bind(this), 1000)
@@ -48,36 +48,35 @@ class Decrementer extends Component {
         return this.state.timer ? this.pause() : this.play();
     }
 
-    labelButton() {
-        return this.state.timer ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>;
-    }
+    labelButton = () => this.state.timer ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>;
 
-    manIncrement(e) {
+    manIncrement = (e) => {
         e.preventDefault()
         this.setState((state, props) => ({ n: state.n + props.step * 60 }));
     }
 
-    manDecrement(e) {
+    manDecrement = (e) => {
         //disallow the default behavior
         e.preventDefault()
         this.setState((state, props) => ({ n: state.n - props.step * 60 }));
     }
 
+    toMinutesAndSeconds = (param) => {
+        let minutes = Math.floor(param / 60);
+        let seconds = ((param % 60) / 1).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
+
     render() {
-        function toMinutesAndSeconds(param) {
-            let minutes = Math.floor(param / 60);
-            let seconds = ((param % 60) / 1).toFixed(0);
-            return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
-        }
         return (
             <>
                 <div className="pomodoroApp__task">Your task here</div>
                 <div className="pomodoroApp__setTime">
-                    <button className="pomodoroApp__setTimeUp" onClick={this.state.timer == null ? this.manDecrement.bind(this) : null}> <i className="fas fa-minus"></i> </button>
+                    <button className="pomodoroApp__setTimeUp" onClick={this.state.timer == null ? this.manDecrement : null}> <i className="fas fa-minus"></i> </button>
                     <i className="fas fa-stopwatch pomodoroApp__stopWatch"></i>
-                    <button className="pomodoroApp__setTimeDwn" onClick={this.manIncrement.bind(this)}> <i className="fas fa-plus"></i> </button>
+                    <button className="pomodoroApp__setTimeDwn" onClick={this.manIncrement}> <i className="fas fa-plus"></i> </button>
                 </div>
-                <div className="pomodoroApp__timer">{toMinutesAndSeconds(this.state.n)}</div>
+                <div className="pomodoroApp__timer">{this.toMinutesAndSeconds(this.state.n)}</div>
                 <div className="pomodoroApp__controls">
                     <button type={"button"} className="pomodoroApp__button pomodoroApp__button--playPause" onClick={this.toggle}>
                         {this.labelButton()}
@@ -91,9 +90,9 @@ class Decrementer extends Component {
     }
 }
 
-Decrementer.defaultProps = {
+Timer.defaultProps = {
     start: 1500,
     step: 1,
 };
 
-export default Decrementer;
+export default Timer;

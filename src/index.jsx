@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Clock from "./components/clock";
-import Incrementer from "./components/timer";
+import Timer from "./components/timer";
 // import ManualIncrementer from "./components/manual-incrementer.jsx";
 import App from "./appModal";
 
 
 function displayPomo() {
   return <>
-    <Incrementer />
+    <Timer />
     <App />
   </>
 }
