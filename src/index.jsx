@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Clock from "./components/clock";
-import Incrementer from "./components/decrementer";
+import Incrementer from "./components/timer";
 // import ManualIncrementer from "./components/manual-incrementer.jsx";
 import App from "./appModal";
 
 
-function Home() {
+function displayPomo() {
   return <>
     <Incrementer />
     <App />
   </>
 }
 
-ReactDOM.render(Home(), document.querySelector(".screen"));
+ReactDOM.render(displayPomo(), document.querySelector(".screen"));
 ReactDOM.render(<Clock />, document.querySelector(".notifBar__time"));

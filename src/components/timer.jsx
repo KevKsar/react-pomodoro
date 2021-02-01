@@ -40,7 +40,7 @@ class Decrementer extends Component {
         this.pause();
     }
 
-    endTimer = () =>{
+    endTimer = () => {
 
     }
 
