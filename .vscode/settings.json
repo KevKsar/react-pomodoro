@@ -1,5 +1,11 @@
 {
   "editor.fontFamily": "\"Victor mono\"",
   "editor.fontSize": 18,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "files.autoSave": "afterDelay",
+  "json.schemas": [],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

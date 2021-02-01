@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import Clock from "./components/clock";
 import Timer from "./components/timer";
 // import ManualIncrementer from "./components/manual-incrementer.jsx";
-import App from "./appModal";
-
+import App from "./app-modal";
 
 function displayPomo() {
-  return <>
-    <Timer />
-    <App />
-  </>
+    return (
+        <>
+            <Timer />
+            <App />
+        </>
+    );
 }
 
 ReactDOM.render(displayPomo(), document.querySelector(".screen"));
