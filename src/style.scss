@@ -209,7 +209,7 @@ body {
 
 .modal {
     @include box(70%, 40%);
-    background-color: lighten($screen, $amount: 10);
+    background-color: transparentize(lighten($screen, $amount: 10), $amount: 0.05);
     position: absolute;
     top: 50%;
     left: 50%;

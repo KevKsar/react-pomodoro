@@ -9,7 +9,6 @@ class TimerBreak extends Component {
     }
 
     componentDidMount() {
-        // window.setInterval(this.decrement.bind(this), 1000)
         this.pause();
     }
 

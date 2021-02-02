@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-// import App from "./app-modal";
-// import Modal from "./modal";
-// import useModal from "./use-modal";
+
 
 class Timer extends Component {
     constructor(props) {
@@ -15,7 +13,6 @@ class Timer extends Component {
     }
 
     componentDidMount() {
-        // window.setInterval(this.decrement.bind(this), 1000)
         this.pause();
     }
 
@@ -67,7 +64,6 @@ class Timer extends Component {
     }
 
     handleDecrement(e) {
-        //disallow the default behavior
         e.preventDefault();
         this.state.n >= 59 ?
         this.setState((state, props) => ({n: state.n - props.step * 60}))

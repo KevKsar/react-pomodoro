@@ -291,7 +291,7 @@ body {
 .modal {
   width: 70%;
   height: 40%;
-  background-color: #575757;
+  background-color: rgba(87, 87, 87, 0.95);
   position: absolute;
   top: 50%;
   left: 50%;
