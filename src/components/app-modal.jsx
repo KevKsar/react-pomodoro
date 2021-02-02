@@ -1,10 +1,9 @@
 import React from "react";
-import useModal from "./components/use-modal";
-import Modal from "./components/modal";
+import useModal from "./use-modal";
+import Modal from "./modal";
 
-export default function App() {
+const App = () => {
     const {isShowing, toggleModal} = useModal();
-
     return (
         <>
             <div className={"appModal"}>
@@ -19,3 +18,5 @@ export default function App() {
         </>
     );
 }
+
+export default App

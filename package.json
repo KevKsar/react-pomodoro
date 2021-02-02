@@ -4,7 +4,9 @@
   "description": "A pomodoro timer to organize tasks along the day",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint --fix --cache src",
+    "work": "npx parcel src/index.html",
+    "build": "npx babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@becode/eslint-config": "^0.12.1",
     "eslint": "^7.18.0",
@@ -45,9 +48,11 @@
     }
   },
   "dependencies": {
+    "app-modal": "0.0.1",
     "component": "^1.1.0",
     "components": "^0.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "src": "^1.1.2"
   }
 }

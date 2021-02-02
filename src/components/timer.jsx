@@ -1,10 +1,12 @@
 import React, {Component} from "react";
+// import App from "./app-modal";
+// import Modal from "./modal";
+// import useModal from "./use-modal";
 
 class Timer extends Component {
     constructor(props) {
         super(props);
         this.state = {n: props.start, timer: null};
-        // this.timer = null
         this.handleToggle = this.handleToggle.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.labelButton = this.labelButton.bind(this);
@@ -23,6 +25,7 @@ class Timer extends Component {
 
     decrement() {
         this.setState((state, props) => ({n: state.n - props.step}));
+        this.state.n == 0 ? this.pause() : null;
     }
 
     pause() {
@@ -34,10 +37,13 @@ class Timer extends Component {
 
     play() {
         window.clearInterval(this.state.timer);
-        this.setState({
-            timer: window.setInterval(this.decrement.bind(this), 1000),
-        });
+        this.state.n != 0
+            ? this.setState({
+                timer: window.setInterval(this.decrement.bind(this), 1000),
+            })
+            : this.handleReset();
     }
+
     handleReset() {
         this.setState((state, props) => ({n: props.start}));
         this.pause();
@@ -57,13 +63,15 @@ class Timer extends Component {
 
     handleIncrement(e) {
         e.preventDefault();
-        this.setState((state, props) => ({n: state.n + props.step * 60}));
+        this.setState((state, props) => ({n: state.n + props.step * 60})) 
     }
 
     handleDecrement(e) {
         //disallow the default behavior
         e.preventDefault();
-        this.setState((state, props) => ({n: state.n - props.step * 60}));
+        this.state.n >= 59 ?
+        this.setState((state, props) => ({n: state.n - props.step * 60}))
+        : null
     }
 
     render() {
@@ -72,6 +80,7 @@ class Timer extends Component {
             const seconds = ((param % 60) / 1).toFixed(0);
             return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
         }
+        console.log();
         return (
             <>
                 <div className={"pomodoroApp__task"}>{"Your task here"}</div>

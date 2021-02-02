@@ -98,7 +98,7 @@ body {
 
 .notifBar__time {
   font-weight: bold;
-  margin-left: 1rem;
+  margin-left: 2rem;
   text-align: left;
 }
 
@@ -106,7 +106,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .notifBar__item {
@@ -334,7 +334,7 @@ body {
 }
 
 .modal__title {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
