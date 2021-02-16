@@ -13,6 +13,6 @@ const useModal = () => {
         isShowing,
         toggleModal,
     };
-}; 
+};
 
 export default useModal;

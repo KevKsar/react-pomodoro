@@ -59,9 +59,9 @@ class TimerBreak extends Component {
 
     titleModal() {
         return this.state.timerBreak ? (
-            <div className="modal__title">{"Break ends in:"}</div>
+            <div className={"modal__title"}>{"Break ends in:"}</div>
         ) : (
-            <div className="modal__title">{"Start your break"}</div>
+            <div className={"modal__title"}>{"Start your break"}</div>
         );
     }
 
@@ -77,10 +77,14 @@ class TimerBreak extends Component {
                     <div className={"modal__title"}>{this.titleModal()}</div>
                 </div>
                 <div className={"modal__body"}>
-                    <div className={"modal__timer"}>{toMinutesAndSeconds(this.state.n)}</div>
+                    <div className={"modal__timer"}>
+                        {toMinutesAndSeconds(this.state.n)}
+                    </div>
                 </div>
-                <button className={"modal__startButton"} type={"button"}
-                onClick={this.handleToggle}>
+                <button
+                    className={"modal__startButton"}
+                    type={"button"}
+                    onClick={this.handleToggle}>
                     <span>{this.labelButton()}</span>
                 </button>
             </>

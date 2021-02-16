@@ -2,7 +2,7 @@
   "name": "react-pomodoro",
   "version": "1.0.0",
   "description": "A pomodoro timer to organize tasks along the day",
-  "main": "script.js",
+  "main": "index.jsx",
   "scripts": {
     "lint": "npx eslint --fix --cache src",
     "work": "npx parcel src/index.html",

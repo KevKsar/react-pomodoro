@@ -8,7 +8,7 @@ function displayPomo() {
     return (
         <>
             <Timer />
-            <App/>
+            <App />
         </>
     );
 }
