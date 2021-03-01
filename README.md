@@ -2,6 +2,9 @@
 
 React-pomodoro is a useful application for adept at the pomodoro method.
 
+## Live demo
+https://app-pomodoro.netlify.app.
+
 ## Features
 *Main buttons to control the application (reset, pause, play).
 *Buttons to increment and decrement the session time.
