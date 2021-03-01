@@ -3,7 +3,7 @@
 React-pomodoro is a useful application for adept at the pomodoro method.
 
 ## Live demo
-https://kevksar.github.io/react-pomodoro/.
+https://app-pomodoro.netlify.app.
 
 ## Features
 *Main buttons to control the application (reset, pause, play).
